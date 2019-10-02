@@ -22,4 +22,5 @@ button {
 }
 .on {
     background-color: gray;
+    opacity: .9;
 }
