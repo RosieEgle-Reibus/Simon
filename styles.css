@@ -1,0 +1,25 @@
+button {
+   border: solid black 2px;
+   padding: 100px; 
+   margin: 20px
+}
+
+.click {
+    background-color: lightpink;
+}
+.swipe {
+    background-color: rgb(243, 192, 23);
+}
+.start {
+    background-color: black;
+    color: white;
+}
+.drag {
+    background-color: lightskyblue;
+}
+.space {
+    background-color: lightgreen;
+}
+.on {
+    background-color: gray;
+}
