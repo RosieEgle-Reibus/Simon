@@ -64,19 +64,20 @@ moveAdd = () => {
     }
 }
 compare = () => {
-    for(let i = 0; i < startArray.length; i++) {
-        if(userArray[i].name === startArray[i].name) {
-            /// equal so far
-           console.log("Equal")
-           setTimeout(newMove, 3000)
-        }
-        else if(userArray.length = 0 ) {
-            console.log("no entry")
-        }
-        else {
-            // not equal game over 
+    if(!userArray.length) {
+        console.log("no entry")
+    }
+    for(let i = 0; i < userArray.length; i++) {
+        if(userArray[i].name !== startArray[i].name) {
+            /// not equal
             console.log("Lost")
-            return
+            startArray = []
+            userArray = []
+        }
+       
+        else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
+            console.log("Equal")
+            setTimeout(newMove, 2000)
         }
         console.log(userArray)
         console.log(startArray)
@@ -86,7 +87,8 @@ newMove = () => {
     userArray = []
     randomizer()
     moveAdd() 
-    setTimeout(compare, 4000)
+    setTimeout(compare, 4000)  
+    
 }
 
 
@@ -97,7 +99,7 @@ startButton.addEventListener("click", function (event) {
     event.preventDefault()
     changeColorOn(startButton)
     setTimeout(changeColorOff, 500, startButton)
-    newMove()   
+    newMove() 
 })
 
 
