@@ -39,11 +39,6 @@ let userArray = []
 let startArray = [] 
 
 
-randomizer = () => {
-randomButton = buttons[Math.floor(Math.random()*buttons.length)]
-startArray.push(randomButton)
-}
-
 // Global Functions
 playAudio = (button) => {
     button.play() 
@@ -59,6 +54,17 @@ lightAndSound = (buttonObj) => {
     setTimeout(changeColorOff, 1000, buttonObj.name) 
     playAudio(buttonObj.sounds)
 }
+randomizer = () => {
+    randomButton = buttons[Math.floor(Math.random()*buttons.length)]
+    startArray.push(randomButton)
+}
+moveAdd = () => {
+    for (let i = 0; i < startArray.length; i++) {
+        setTimeout(lightAndSound, 1000*i, startArray[i])
+    }
+}
+
+
 
 // Event Listeners
 
@@ -66,17 +72,20 @@ lightAndSound = (buttonObj) => {
 startButton.addEventListener("click", function(event){
     event.preventDefault()
     changeColorOn(startButton) 
-    setTimeout(changeColorOff, 1000, startButton)   
+    setTimeout(changeColorOff, 1000, startButton)
+    
 })
 
 //Buttons
 clickButton.addEventListener("click", function(event){
     event.preventDefault()
     lightAndSound(clickButtonObj)
+    userArray.push(clickButtonObj)
 })
 dragButton.addEventListener("click", function(event){
     event.preventDefault()
     lightAndSound(dragButtonObj)
+    userArray.push(dragButtonObj)
 })
 swipeButton.addEventListener("click", function(event){
     event.preventDefault()
@@ -106,3 +115,21 @@ spaceButton.addEventListener("click", function(event){
 
 // else user loses and startarray = []
 
+
+
+newMove = () => { 
+randomizer()
+moveAdd()
+compare()
+setTimeout(compare, 6000)
+}
+
+compare = () => {
+if (userArray === startArray){
+    newMove()
+} else {
+    alert("You lost!")
+    startArray = []
+    userArray = []
+}    
+}
