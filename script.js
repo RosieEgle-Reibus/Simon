@@ -4,17 +4,20 @@
 let clickButton = document.getElementById('click-button')
 let swipeButton = document.getElementById('swipe-button')
 let dragButton = document.getElementById('drag-button')
-let spaceButton = document.getElementById('sapce-button')
+let spaceButton = document.getElementById('space-button')
 let startButton = document.getElementById("start-button")
 
-//Sounds
+//Sound Variables
 let clickSound = document.getElementById("clickSound")
 let dragSound = document.getElementById("dragSound")
 let swipeSound = document.getElementById("swipeSound")
 let spaceSound = document.getElementById("spaceSound")
 
-// Global Functions
 
+
+
+
+// Global Functions
 playAudio = (button) => {
     button.play() 
 }
@@ -31,24 +34,26 @@ lightAndSound = (buttonName, sound) => {
     playAudio(sound)
 }
 
-
-
 // Event Listeners
-
 startButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(startButton)
+    changeColorOn(startButton) 
+    setTimeout(changeColorOff, 1000, startButton)
+    
 })
-
 clickButton.addEventListener("click", function(event){
     event.preventDefault()
     lightAndSound(clickButton, clickSound)
 })
 dragButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(clickButton, startSound)
+    lightAndSound(dragButton, dragSound)
 })
 swipeButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(clickButton, startSound)
+    lightAndSound(swipeButton, swipeSound)
+})
+spaceButton.addEventListener("click", function(event){
+    event.preventDefault()
+    lightAndSound(spaceButton, spaceSound)
 })
