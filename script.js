@@ -14,8 +14,27 @@ let dragSound = document.getElementById("dragSound")
 let swipeSound = document.getElementById("swipeSound")
 let spaceSound = document.getElementById("spaceSound")
 
+// Objects
+let clickButtonObj = {
+    name: clickButton,
+    sounds: clickSound
+}
+let dragButtonObj = {
+    name: dragButton,
+    sounds: dragSound
+}
+let swipeButtonObj = {
+    name: swipeButton,
+    sounds: swipeSound
+}
+let spaceButtonObj = {
+    name: spaceButton,
+    sounds: spaceSound
+}
+
+
 //Arrays
-let buttons = [clickButton, swipeButton, dragButton, spaceButton]
+let buttons = [clickButtonObj, swipeButtonObj, dragButtonObj, spaceButtonObj]
 let userArray = []
 let startArray = [] 
 
@@ -68,4 +87,22 @@ spaceButton.addEventListener("click", function(event){
     lightAndSound(spaceButton, spaceSound)
 })
 
+
+// PSUEDOCODE
+
+// click start
+
+// start calls randomizer 
+
+// forEachthen calls light/sound on startArray
+
+// wait with settimeout to run if statement
+
+// user clicks the same button
+
+// if startArray === userarray 
+
+// then we loop back to top and do it again 
+
+// else user loses and startarray = []
 
