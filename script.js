@@ -63,31 +63,46 @@ moveAdd = () => {
         setTimeout(lightAndSound, 1000 * i, startArray[i])
     }
 }
-compare = () => {
-    if(!userArray.length) {
-        console.log("no entry")
-    }
-    for(let i = 0; i < userArray.length; i++) {
-        if(userArray[i].name !== startArray[i].name) {
-            /// not equal
-            console.log("Lost")
-            startArray = []
-            userArray = []
-        }
+// compare = () => {
+//     if(!userArray.length) {
+//         console.log("no entry")
+//     }
+    // for(let i = 0; i < userArray.length; i++) {
+    //     if(userArray[i].name !== startArray[i].name) {
+    //         /// not equal
+    //         console.log("Lost")
+    //         startArray = []
+    //         userArray = []
+    //     }
        
-        else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
-            console.log("Equal")
-            setTimeout(newMove, 2000)
-        }
-        console.log(userArray)
-        console.log(startArray)
+    //     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
+    //         console.log("Equal")
+    //         setTimeout(newMove, 2000)
+    //     }
+    //     console.log(userArray)
+    //     console.log(startArray)
+    // }
+// }
+compare = () => {
+    for(let i = 0; i < userArray.length; i++)
+    if((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length)) {
+        startArray = []
+        userArray = []
+        console.log("Lost")
+        return    
     }
+    
+    setTimeout(newMove, 3000)
+    return
 }
+
+
+
 newMove = () => {
     userArray = []
     randomizer()
     moveAdd() 
-    setTimeout(compare, 4000)  
+    setTimeout(compare, 10000)  
     
 }
 
