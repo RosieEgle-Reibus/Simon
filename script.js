@@ -54,10 +54,10 @@ changeColorOn = (buttonName) => {
 changeColorOff = (buttonName) => {
     buttonName.classList.remove("on")
 }
-lightAndSound = (buttonName, sound) => {
-    changeColorOn(buttonName) 
-    setTimeout(changeColorOff, 1000, buttonName) 
-    playAudio(sound)
+lightAndSound = (buttonObj) => {
+    changeColorOn(buttonObj.name) 
+    setTimeout(changeColorOff, 1000, buttonObj.name) 
+    playAudio(buttonObj.sounds)
 }
 
 // Event Listeners
@@ -72,19 +72,19 @@ startButton.addEventListener("click", function(event){
 //Buttons
 clickButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(clickButton, clickSound)
+    lightAndSound(clickButtonObj)
 })
 dragButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(dragButton, dragSound)
+    lightAndSound(dragButtonObj)
 })
 swipeButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(swipeButton, swipeSound)
+    lightAndSound(swipeButtonObj)
 })
 spaceButton.addEventListener("click", function(event){
     event.preventDefault()
-    lightAndSound(spaceButton, spaceSound)
+    lightAndSound(spaceButtonObj)
 })
 
 
