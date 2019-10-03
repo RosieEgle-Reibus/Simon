@@ -36,12 +36,12 @@ let spaceButtonObj = {
 //Arrays
 let buttons = [clickButtonObj, swipeButtonObj, dragButtonObj, spaceButtonObj]
 let userArray = []
-let startArray = [] 
+let startArray = []
 
 
 // Global Functions
 playAudio = (button) => {
-    button.play() 
+    button.play()
 }
 changeColorOn = (buttonName) => {
     buttonName.classList.add("on")
@@ -50,51 +50,82 @@ changeColorOff = (buttonName) => {
     buttonName.classList.remove("on")
 }
 lightAndSound = (buttonObj) => {
-    changeColorOn(buttonObj.name) 
-    setTimeout(changeColorOff, 1000, buttonObj.name) 
+    changeColorOn(buttonObj.name)
+    setTimeout(changeColorOff, 1000, buttonObj.name)
     playAudio(buttonObj.sounds)
 }
 randomizer = () => {
-    randomButton = buttons[Math.floor(Math.random()*buttons.length)]
+    randomButton = buttons[Math.floor(Math.random() * buttons.length)]
     startArray.push(randomButton)
 }
 moveAdd = () => {
     for (let i = 0; i < startArray.length; i++) {
-        setTimeout(lightAndSound, 1000*i, startArray[i])
+        setTimeout(lightAndSound, 1000 * i, startArray[i])
     }
 }
+compare = () => {
+    for(let i = 0; i < startArray.length; i++) {
+        if(userArray[i].name === startArray[i].name) {
+            /// equal so far
+           console.log(userArray)
+        }
+        else if(userArray.length = 0 ) {
+            console.log("no entry")
+        }
 
+        else {
+            // not equal game over
+            console.log("not equal")
+            // alert("You lost!")
+            return
+        }
+    }
+}
+  
+newMove = () => {
+    userArray = []
+    randomizer()
+    moveAdd()
+    
+}
 
 
 // Event Listeners
 
 //Start Button
-startButton.addEventListener("click", function(event){
+startButton.addEventListener("click", function (event) {
     event.preventDefault()
-    changeColorOn(startButton) 
-    setTimeout(changeColorOff, 1000, startButton)
-    
+    changeColorOn(startButton)
+    setTimeout(changeColorOff, 500, startButton)
+    newMove()
+    setTimeout(compare, 4000)
 })
 
+
 //Buttons
-clickButton.addEventListener("click", function(event){
+clickButton.addEventListener("click", function (event) {
     event.preventDefault()
     lightAndSound(clickButtonObj)
     userArray.push(clickButtonObj)
 })
-dragButton.addEventListener("click", function(event){
+dragButton.addEventListener("click", function (event) {
     event.preventDefault()
     lightAndSound(dragButtonObj)
     userArray.push(dragButtonObj)
 })
-swipeButton.addEventListener("click", function(event){
+swipeButton.addEventListener("click", function (event) {
     event.preventDefault()
     lightAndSound(swipeButtonObj)
+    userArray.push(swipeButtonObj)
 })
-spaceButton.addEventListener("click", function(event){
+spaceButton.addEventListener("click", function (event) {
     event.preventDefault()
     lightAndSound(spaceButtonObj)
+    userArray.push(spaceButtonObj)
 })
+
+
+
 
 
 // PSUEDOCODE
@@ -114,22 +145,3 @@ spaceButton.addEventListener("click", function(event){
 // then we loop back to top and do it again 
 
 // else user loses and startarray = []
-
-
-
-newMove = () => { 
-randomizer()
-moveAdd()
-compare()
-setTimeout(compare, 6000)
-}
-
-compare = () => {
-if (userArray === startArray){
-    newMove()
-} else {
-    alert("You lost!")
-    startArray = []
-    userArray = []
-}    
-}
