@@ -10,6 +10,8 @@ let randomButton
 let count = document.getElementById('count')
 let container = document.getElementById("button-container")
 let status = document.getElementById("status")
+let highScoreDiv = document.getElementById("high-score")
+let highScore = 0
 
 //Sound Variables
 let clickSound = document.getElementById("clickSound")
@@ -42,8 +44,10 @@ let startArray = []
 
 
 // Global Functions
-playAudio = (button) => {
-    button.play()
+playAudio = (buttonSound) => {
+        buttonSound.play()
+        .catch(e => console.error(e))
+   
 }
 changeColorOn = (buttonName) => {
     buttonName.classList.add("on")
@@ -63,6 +67,12 @@ randomizer = () => {
 moveAdd = () => {
     for (let i = 0; i < startArray.length; i++) {
         setTimeout(lightAndSound, 1000 * i, startArray[i])
+    }
+}
+highCalc = () => {
+    if(userArray.length > highScore) {
+        highScore = userArray.length
+        highScoreDiv.innerText = highScore
     }
 }
 compare = () => {
@@ -109,11 +119,11 @@ clickButton.addEventListener("click", function (event) {
     lightAndSound(clickButtonObj)
     userArray.push(clickButtonObj)
 })
-dragButton.addEventListener("click", function (event) {
-    event.preventDefault()
-    lightAndSound(dragButtonObj)
-    userArray.push(dragButtonObj)
-})
+// dragButton.addEventListener("click", function (event) {
+//     event.preventDefault()
+//     lightAndSound(dragButtonObj)
+//     userArray.push(dragButtonObj)
+// })
 swipeButton.addEventListener("mouseover", function (event) {
     event.preventDefault()
     lightAndSound(swipeButtonObj)
@@ -171,3 +181,47 @@ container.addEventListener("keydown", function (event) {
 //     console.log(startArray)
 // }
 // }
+
+let dragContain = document.getElementById("drag-button")
+
+var active = false;
+var currentX;
+var currentY;
+var initialX;
+var initialY;
+var xOffset = 0;
+var yOffset = 0;
+
+dragContain.addEventListener("mousedown", dragStart, false);
+dragContain.addEventListener("mouseup", dragEnd, false);
+dragContain.addEventListener("mousemove", drag, false);
+
+function dragStart(event) {
+    initialX = event.clientX - xOffset;
+    initialY = event.clientY - yOffset;
+    if (event.target === dragButton) {
+        active = true;
+    }
+    lightAndSound(dragButtonObj)
+    userArray.push(dragButtonObj)
+}
+function drag(event) {
+    if (active) {
+        event.preventDefault();
+        currentX = event.clientX - initialX;
+        currentY = event.clientY - initialY;
+        xOffset = currentX;
+        yOffset = currentY;
+        setTranslate(currentX, currentY, dragButton);
+    }
+}
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+  }
+
+  function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+  
+    active = false;
+  }
