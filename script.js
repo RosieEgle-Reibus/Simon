@@ -32,7 +32,6 @@ let spaceButtonObj = {
     sounds: spaceSound
 }
 
-
 //Arrays
 let buttons = [clickButtonObj, swipeButtonObj, dragButtonObj, spaceButtonObj]
 let userArray = []
@@ -67,31 +66,35 @@ moveAdd = () => {
 //     if(!userArray.length) {
 //         console.log("no entry")
 //     }
-    // for(let i = 0; i < userArray.length; i++) {
-    //     if(userArray[i].name !== startArray[i].name) {
-    //         /// not equal
-    //         console.log("Lost")
-    //         startArray = []
-    //         userArray = []
-    //     }
-       
-    //     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
-    //         console.log("Equal")
-    //         setTimeout(newMove, 2000)
-    //     }
-    //     console.log(userArray)
-    //     console.log(startArray)
-    // }
+// for(let i = 0; i < userArray.length; i++) {
+//     if(userArray[i].name !== startArray[i].name) {
+//         /// not equal
+//         console.log("Lost")
+//         startArray = []
+//         userArray = []
+//     }
+
+//     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
+//         console.log("Equal")
+//         setTimeout(newMove, 2000)
+//     }
+//     console.log(userArray)
+//     console.log(startArray)
+// }
 // }
 compare = () => {
-    for(let i = 0; i < userArray.length; i++)
-    if((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length)) {
+    if (!userArray.length) {
+        console.log("no entry")
         startArray = []
-        userArray = []
-        console.log("Lost")
-        return    
+        return
     }
-    
+    for (let i = 0; i < userArray.length; i++)
+        if ((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length) || (userArray.length > startArray.length)) {
+            startArray = []
+            userArray = []
+            console.log("Lost")
+            return
+        }
     setTimeout(newMove, 3000)
     return
 }
@@ -101,9 +104,8 @@ compare = () => {
 newMove = () => {
     userArray = []
     randomizer()
-    moveAdd() 
-    setTimeout(compare, 10000)  
-    
+    moveAdd()
+    setTimeout(compare, 12000)
 }
 
 
@@ -114,7 +116,7 @@ startButton.addEventListener("click", function (event) {
     event.preventDefault()
     changeColorOn(startButton)
     setTimeout(changeColorOff, 500, startButton)
-    newMove() 
+    newMove()
 })
 
 
