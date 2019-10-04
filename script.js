@@ -109,7 +109,7 @@ dragButton.addEventListener("click", function (event) {
     lightAndSound(dragButtonObj)
     userArray.push(dragButtonObj)
 })
-swipeButton.addEventListener("click", function (event) {
+swipeButton.addEventListener("mouseover", function (event) {
     event.preventDefault()
     lightAndSound(swipeButtonObj)
     userArray.push(swipeButtonObj)
