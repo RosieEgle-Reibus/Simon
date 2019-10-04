@@ -12,6 +12,7 @@ let container = document.getElementById("button-container")
 let status = document.getElementById("status")
 let highScoreDiv = document.getElementById("high-score")
 let highScore = 0
+let scoreChecker = userArray.length
 
 //Sound Variables
 let clickSound = document.getElementById("clickSound")
@@ -45,9 +46,8 @@ let startArray = []
 
 // Global Functions
 playAudio = (buttonSound) => {
-        buttonSound.play()
+    buttonSound.play()
         .catch(e => console.error(e))
-   
 }
 changeColorOn = (buttonName) => {
     buttonName.classList.add("on")
@@ -70,7 +70,7 @@ moveAdd = () => {
     }
 }
 highCalc = () => {
-    if(userArray.length > highScore) {
+    if (userArray.length > highScore) {
         highScore = userArray.length
         highScoreDiv.innerText = highScore
     }
@@ -111,19 +111,12 @@ startButton.addEventListener("click", function (event) {
     setTimeout(changeColorOff, 200, startButton)
     setTimeout(newMove, 750)
 })
-
-
 //Buttons
 clickButton.addEventListener("click", function (event) {
     event.preventDefault()
     lightAndSound(clickButtonObj)
     userArray.push(clickButtonObj)
 })
-// dragButton.addEventListener("click", function (event) {
-//     event.preventDefault()
-//     lightAndSound(dragButtonObj)
-//     userArray.push(dragButtonObj)
-// })
 swipeButton.addEventListener("mouseover", function (event) {
     event.preventDefault()
     lightAndSound(swipeButtonObj)
@@ -131,57 +124,16 @@ swipeButton.addEventListener("mouseover", function (event) {
 })
 container.addEventListener("keydown", function (event) {
     event.preventDefault()
-    if(event.keyCode === 32) {
+    if (event.keyCode === 32) {
         console.log("BANANASSSSS")
-    lightAndSound(spaceButtonObj)
-    userArray.push(spaceButtonObj)
+        lightAndSound(spaceButtonObj)
+        userArray.push(spaceButtonObj)
     }
 })
 
+//Drag 
 
-
-
-
-
-// PSUEDOCODE
-
-// click start
-
-// start calls randomizer 
-
-// forEachthen calls light/sound on startArray
-
-// wait with settimeout to run if statement
-
-// user clicks the same button
-
-// if startArray === userarray 
-
-// then we loop back to top and do it again 
-
-// else user loses and startarray = []
-
-// compare = () => {
-//     if(!userArray.length) {
-//         console.log("no entry")
-//     }
-// for(let i = 0; i < userArray.length; i++) {
-//     if(userArray[i].name !== startArray[i].name) {
-//         /// not equal
-//         console.log("Lost")
-//         startArray = []
-//         userArray = []
-//     }
-
-//     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
-//         console.log("Equal")
-//         setTimeout(newMove, 2000)
-//     }
-//     console.log(userArray)
-//     console.log(startArray)
-// }
-// }
-
+//Drag Variables
 let dragContain = document.getElementById("drag-button")
 
 var active = false;
@@ -192,10 +144,12 @@ var initialY;
 var xOffset = 0;
 var yOffset = 0;
 
+//Drag Event Listener
 dragContain.addEventListener("mousedown", dragStart, false);
 dragContain.addEventListener("mouseup", dragEnd, false);
 dragContain.addEventListener("mousemove", drag, false);
 
+//Drag Functions
 function dragStart(event) {
     initialX = event.clientX - xOffset;
     initialY = event.clientY - yOffset;
@@ -217,11 +171,10 @@ function drag(event) {
 }
 function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-  }
-
-  function dragEnd(e) {
+}
+function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-  
+
     active = false;
-  }
+}
