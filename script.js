@@ -95,7 +95,7 @@ compare = () => {
             console.log("Lost")
             return
         }
-    setTimeout(newMove, 3000)
+    setTimeout(newMove, 2000)
     return
 }
 
@@ -105,7 +105,7 @@ newMove = () => {
     userArray = []
     randomizer()
     moveAdd()
-    setTimeout(compare, 12000)
+    setTimeout(compare, (2000 * startArray.length))
 }
 
 
