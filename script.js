@@ -12,7 +12,7 @@ let container = document.getElementById("button-container")
 let status = document.getElementById("status")
 let highScoreDiv = document.getElementById("high-score")
 let highScore = 0
-let scoreChecker = userArray.length
+
 
 //Sound Variables
 let clickSound = document.getElementById("clickSound")
@@ -42,7 +42,7 @@ let spaceButtonObj = {
 let buttons = [clickButtonObj, swipeButtonObj, dragButtonObj, spaceButtonObj]
 let userArray = []
 let startArray = []
-
+let scoreChecker 
 
 // Global Functions
 playAudio = (buttonSound) => {
@@ -70,9 +70,9 @@ moveAdd = () => {
     }
 }
 highCalc = () => {
-    if (userArray.length > highScore) {
-        highScore = userArray.length
-        highScoreDiv.innerText = highScore
+    if ( scoreChecker > highScore) {
+        highScore = scoreChecker
+        highScoreDiv.innerText = "Longest Gong: " + scoreChecker
     }
 }
 compare = () => {
@@ -85,12 +85,14 @@ compare = () => {
     for (let i = 0; i < userArray.length; i++)
         if ((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length) || (userArray.length > startArray.length)) {
             startArray = []
-            userArray = []
+            scoreChecker = userArray.length
+            highCalc()
             status.innerText = "You lose :("
             console.log("Lost")
+            count.innerText = "Current Streak: 0"
             return
         }
-    count.innerText = userArray.length
+    count.innerText = "Current Streak: " + userArray.length
     setTimeout(newMove, 2000)
     return
 }
