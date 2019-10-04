@@ -7,6 +7,7 @@ let dragButton = document.getElementById('drag-button')
 let spaceButton = document.getElementById('space-button')
 let startButton = document.getElementById("start-button")
 let randomButton
+let count = document.getElementById('count')
 
 //Sound Variables
 let clickSound = document.getElementById("clickSound")
@@ -62,26 +63,6 @@ moveAdd = () => {
         setTimeout(lightAndSound, 1000 * i, startArray[i])
     }
 }
-// compare = () => {
-//     if(!userArray.length) {
-//         console.log("no entry")
-//     }
-// for(let i = 0; i < userArray.length; i++) {
-//     if(userArray[i].name !== startArray[i].name) {
-//         /// not equal
-//         console.log("Lost")
-//         startArray = []
-//         userArray = []
-//     }
-
-//     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
-//         console.log("Equal")
-//         setTimeout(newMove, 2000)
-//     }
-//     console.log(userArray)
-//     console.log(startArray)
-// }
-// }
 compare = () => {
     if (!userArray.length) {
         console.log("no entry")
@@ -95,12 +76,10 @@ compare = () => {
             console.log("Lost")
             return
         }
+    count.innerText = userArray.length
     setTimeout(newMove, 2000)
     return
 }
-
-
-
 newMove = () => {
     userArray = []
     randomizer()
@@ -108,15 +87,14 @@ newMove = () => {
     setTimeout(compare, (2000 * startArray.length))
 }
 
-
 // Event Listeners
 
 //Start Button
 startButton.addEventListener("click", function (event) {
     event.preventDefault()
     changeColorOn(startButton)
-    setTimeout(changeColorOff, 500, startButton)
-    newMove()
+    setTimeout(changeColorOff, 200, startButton)
+    setTimeout(newMove, 750)
 })
 
 
@@ -163,3 +141,24 @@ spaceButton.addEventListener("click", function (event) {
 // then we loop back to top and do it again 
 
 // else user loses and startarray = []
+
+// compare = () => {
+//     if(!userArray.length) {
+//         console.log("no entry")
+//     }
+// for(let i = 0; i < userArray.length; i++) {
+//     if(userArray[i].name !== startArray[i].name) {
+//         /// not equal
+//         console.log("Lost")
+//         startArray = []
+//         userArray = []
+//     }
+
+//     else if(userArray[userArray.length - 1].name === startArray[startArray.length - 1].name) {
+//         console.log("Equal")
+//         setTimeout(newMove, 2000)
+//     }
+//     console.log(userArray)
+//     console.log(startArray)
+// }
+// }
