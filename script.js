@@ -8,6 +8,8 @@ let spaceButton = document.getElementById('space-button')
 let startButton = document.getElementById("start-button")
 let randomButton
 let count = document.getElementById('count')
+let container = document.getElementById("button-container")
+let status = document.getElementById("status")
 
 //Sound Variables
 let clickSound = document.getElementById("clickSound")
@@ -67,12 +69,14 @@ compare = () => {
     if (!userArray.length) {
         console.log("no entry")
         startArray = []
+        status.innerText = "You lose :("
         return
     }
     for (let i = 0; i < userArray.length; i++)
         if ((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length) || (userArray.length > startArray.length)) {
             startArray = []
             userArray = []
+            status.innerText = "You lose :("
             console.log("Lost")
             return
         }
@@ -82,6 +86,7 @@ compare = () => {
 }
 newMove = () => {
     userArray = []
+    status.innerText = "I believe in you!"
     randomizer()
     moveAdd()
     setTimeout(compare, (2000 * startArray.length))
@@ -114,11 +119,15 @@ swipeButton.addEventListener("mouseover", function (event) {
     lightAndSound(swipeButtonObj)
     userArray.push(swipeButtonObj)
 })
-spaceButton.addEventListener("click", function (event) {
+container.addEventListener("keydown", function (event) {
     event.preventDefault()
+    if(event.keyCode === 32) {
+        console.log("BANANASSSSS")
     lightAndSound(spaceButtonObj)
     userArray.push(spaceButtonObj)
+    }
 })
+
 
 
 
