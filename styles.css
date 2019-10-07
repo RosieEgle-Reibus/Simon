@@ -1,9 +1,9 @@
 /* Main Styles */
-body {
+* {
     margin: 0 auto;
     box-sizing: border-box;
     background-color: #333;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 main {
     width: 100%;
@@ -16,26 +16,46 @@ main {
 }
 /* Header Styles */
 header {
-    color: white;
+    color: #333;
     display: flex;
+    margin-top: 30px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: white;
+    
 }
 .score-container {
     display: flex;
     justify-content: space-evenly;
     width: 50%;
     font-size: 18px;
-
+    margin: 10px;
+    color: white;
 }
 h1 {
     font-size: 40px;
-    background-color: green;
+    padding: 10px;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    
 }
 h2 {
-    background-color: purple;
+    color: #fff;
+    padding: 15px;
+    font-size: 32px;
+   
 }
+/* .longest {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
+.current {
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+} */
 
 /* Button Styles */
 button {
@@ -48,6 +68,9 @@ button {
     border-radius: 50%;
     touch-action: none;
     user-select: none;
+    color: #333;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
 }
 .click {
     background-color: #ffb6c1;
@@ -56,10 +79,10 @@ button {
     background-color: rgb(243, 192, 23);
 }
 .start {
-    background-color: black;
-    color: white;
+    background-color: #fff;
     width: 200px;
     height: 200px;
+    font-size: 24px;
 }
 .drag {
     background-color: #87cefa;
@@ -76,6 +99,8 @@ button:hover {
     cursor: pointer;
     border-width: 20px;
   }
+button:focus {outline:0;}
+
 .button-container {
       display: flex;
       align-items: center;
