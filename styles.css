@@ -3,6 +3,7 @@ body {
     margin: 0 auto;
     box-sizing: border-box;
     background-color: #333;
+    font-family: 'Oswald', sans-serif;
 }
 main {
     width: 100%;
@@ -21,12 +22,27 @@ header {
     justify-content: center;
     flex-direction: column;
 }
+.score-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    font-size: 18px;
+
+}
+h1 {
+    font-size: 40px;
+    background-color: green;
+}
+h2 {
+    background-color: purple;
+}
 
 /* Button Styles */
 button {
    margin: 20px;
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
+    font-family: 'Oswald', sans-serif;
     background-color: rgb(245, 230, 99);
     border: 10px solid rgba(136, 136, 136, .5);
     border-radius: 50%;
@@ -34,7 +50,7 @@ button {
     user-select: none;
 }
 .click {
-    background-color: lightpink;
+    background-color: #ffb6c1;
 }
 .swipe {
     background-color: rgb(243, 192, 23);
@@ -42,13 +58,15 @@ button {
 .start {
     background-color: black;
     color: white;
+    width: 200px;
+    height: 200px;
 }
 .drag {
-    background-color: lightskyblue;
+    background-color: #87cefa;
     user-select: none;
 }
 .space {
-    background-color: lightgreen;
+    background-color: #90ee90;
 }
 .on {
     background-color: gray;
