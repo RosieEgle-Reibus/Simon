@@ -72,7 +72,7 @@ moveAdd = () => {
 highCalc = () => {
     if ( scoreChecker > highScore) {
         highScore = scoreChecker
-        highScoreDiv.innerText = "Longest Gong: " + scoreChecker
+        highScoreDiv.innerText = "Longest Streak: " + scoreChecker
     }
 }
 compare = () => {
