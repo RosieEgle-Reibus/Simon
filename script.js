@@ -84,9 +84,9 @@ compare = () => {
     }
     for (let i = 0; i < userArray.length; i++)
         if ((userArray[i].name !== startArray[i].name) || (userArray.length < startArray.length) || (userArray.length > startArray.length)) {
-            startArray = []
-            scoreChecker = userArray.length
+            scoreChecker = (startArray.length - 1)
             highCalc()
+            startArray = []
             status.innerText = "You lose :("
             console.log("Lost")
             count.innerText = "Current Streak: 0"
