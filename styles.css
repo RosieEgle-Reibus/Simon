@@ -51,7 +51,7 @@ h2 {
 
 /* Button Styles */
 button {
-   margin: 20px;
+    margin: 20px;
     width: 175px;
     height: 175px;
     font-family: 'Oswald', sans-serif;
@@ -64,6 +64,27 @@ button {
     font-size: 18px;
     font-family: 'Raleway', sans-serif;
 }
+.accents {
+    display: flex;
+    margin-top: -75px;
+    justify-content: space-evenly;
+    width: 90%;
+}
+.accents-bottom {
+    display: flex;
+    margin-bottom: -75px;
+    justify-content: space-evenly;
+    width: 90%;
+}
+
+.circle {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+
 .click {
     background-color: #ffb6c1;
 }
