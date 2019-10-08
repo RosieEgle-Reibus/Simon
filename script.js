@@ -137,14 +137,13 @@ container.addEventListener("keydown", function (event) {
 
 //Drag Variables
 let dragContain = document.getElementById("drag-button")
-
-var active = false;
-var currentX;
-var currentY;
-var initialX;
-var initialY;
-var xOffset = 0;
-var yOffset = 0;
+let active = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
 
 //Drag Event Listener
 dragContain.addEventListener("mousedown", dragStart, false);
@@ -180,3 +179,7 @@ function dragEnd(e) {
 
     active = false;
 }
+
+// localStorage.setItem('pastscore', highScore)
+// // window.localStorage.getItem('pastScore')
+// console.log(window.localStorage.getItem('pastScore'))
