@@ -42,7 +42,7 @@ let spaceButtonObj = {
 let buttons = [clickButtonObj, swipeButtonObj, dragButtonObj, spaceButtonObj]
 let userArray = []
 let startArray = []
-let scoreChecker 
+let scoreChecker
 
 // Global Functions
 playAudio = (buttonSound) => {
@@ -70,7 +70,7 @@ moveAdd = () => {
     }
 }
 highCalc = () => {
-    if ( scoreChecker > highScore) {
+    if (scoreChecker > highScore) {
         highScore = scoreChecker
         highScoreDiv.innerText = "Longest Streak: " + scoreChecker
     }
@@ -176,10 +176,21 @@ function setTranslate(xPos, yPos, el) {
 function dragEnd(e) {
     initialX = currentX;
     initialY = currentY;
-
     active = false;
 }
 
-// localStorage.setItem('pastscore', highScore)
+
+// let highString = string(highScore)
+
+// localStorage.setItem('pastscore', highString)
 // localStorage.getItem('pastScore')
-// console.log(window.localStorage.getItem('pastScore'))
+// console.log(localStorage.getItem('pastScore'))
+
+// //have to turn highscore into string
+
+// // use LS.setItem with a key of 'pastScore' and value of  highString 
+
+// //use LS.getItem to get value and turn that string into a number 
+
+
+// //to set highScore at load?
