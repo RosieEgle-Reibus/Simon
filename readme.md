@@ -2,8 +2,7 @@
 
 Overview
 ======
-It's Simon! 
-
+It's Simon! Upon pressing start a sound will play and a button will flash grey, the player then must press that same button, illiciting the same sound that was played by the program.  Incrementally, the program will add another sound for each round played and the player must remember and play the same sequence.  If they fail to play the same sequence, in the same order, they will lose.  It tracks how long the current or active streak is, as well as the highscore or longest streak that was completed. 
 
 Technology Used
 ======
