@@ -41,7 +41,7 @@ h1 {
     font-size: 40px;
     padding: 10px;
     background-color: #000000;
-    padding: 20px;  
+    padding: 25px;  
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     
@@ -51,9 +51,20 @@ h2 {
     font-size: 32px;
     margin: 10px;
     background-color: #000000;
-    padding: 20px; 
+    padding: 25px; 
     border-radius: 5px;
 }
+.longest {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+.current {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 
 /* Button Styles */
 .button-container {
@@ -71,6 +82,7 @@ button {
     user-select: none;
     font-size: 18px;
     margin: 30px;
+
 }
 .click {
     background-color: rgba(255, 217, 0);
@@ -79,6 +91,7 @@ button {
 .swipe {
     background-color: rgb(199, 0, 30);
     margin: 50px;
+    color: #fff;
 }
 .start {
     background-color: #000;
@@ -96,6 +109,7 @@ button {
 .space {
     background-color: #0028d8;
     margin: 50px;
+    color: #fff;
 }
 .on {
     background-color: gray;
