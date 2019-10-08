@@ -93,7 +93,7 @@ compare = () => {
             return
         }
     count.innerText = "Current Streak: " + userArray.length
-    setTimeout(newMove, 2000)
+    setTimeout(newMove, 1000)
     return
 }
 newMove = () => {
@@ -181,5 +181,5 @@ function dragEnd(e) {
 }
 
 // localStorage.setItem('pastscore', highScore)
-// // window.localStorage.getItem('pastScore')
+// localStorage.getItem('pastScore')
 // console.log(window.localStorage.getItem('pastScore'))
